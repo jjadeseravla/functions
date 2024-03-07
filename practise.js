@@ -169,4 +169,32 @@ function range(start, end) {
   // this gives arr of [1, 2, 3... 49] not including the 50
 }
 
-console.log(range(1, 50))
+// console.log(range(1, 50));
+
+function shuffle(arr) {
+  // make arr into obj
+  // return arr.indexOf(elem => Math.random(elem))
+  const arrToObj = arr.map((item) => {
+    return { sort: Math.random(), value: item };
+  }).sort((item1, item2) => item1.sort - item2.sort);
+  // turning obj to array
+  return arrToObj.map((item) => item.value)
+}
+// [ 3, 3, 'work', 'hello', 2, 'good' ] <--- shuffled
+
+// console.log(shuffle(['hello', 3, 'good', 3, 2, 'work']))
+
+function minValueAndFrequencyOfIt(arr) {
+  // const sortedArr = arr.sort((a, b) => a - b);
+  // let counter = 0;
+  //  sortedArr.map((num) => {
+  //   if (num === sortedArr[0])
+  //     counter += 1;
+  // });
+  // return counter;
+
+ const minValue =  Math.min(...arr); // min value of arr, Math.min cant pass the [], so use spread
+  return arr.filter(el => el === minValue).length;
+}
+
+// console.log(minValueAndFrequencyOfIt([5, 2, 4, 7, 8, 7, 2, 2, 2]));
